@@ -83,6 +83,9 @@ def convert_text_space_head(in_region):
         else:
             same_paragh = abs(pre_x - x1) < h
             if same_paragh:
+                # (Comment by Coobiw): add space to split two line
+                text += " "
+                # Original PPOCR
                 text += res["text"]
                 frist_line = False
             else:
@@ -120,6 +123,9 @@ def convert_text_space_tail(in_region):
             text += "\n\n"
             text += res["text"]
         else:
+            # (Comment by Coobiw): add space to split two line
+            text += " "
+            # Original PPOCR
             text += res["text"]
 
         frist_line = not is_full
